@@ -7,7 +7,7 @@
 
 #import "ViewController.h"
 #import <Masonry.h>
-
+#import "SettingController.h"
 @interface ViewController ()
 @property(strong, nonatomic) UIView *container;
 @property(strong, nonatomic) UIButton *phoneLoginButton;
@@ -36,7 +36,7 @@
     //设置标题
     [self.phoneLoginButton setTitle:@"手机号登录" forState:UIControlStateNormal];
     //设置点击事件
-    [self.phoneLoginButton addTarget:self action:@selector(phoneLoginClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.phoneLoginButton addTarget:self action:@selector(phoneLoginClick:) forControlEvents:UIControlEventTouchUpInside];
     self.phoneLoginButton.backgroundColor = UIColor.redColor;
     self.phoneLoginButton.layer.cornerRadius = 5;
     [self.phoneLoginButton setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
@@ -48,15 +48,29 @@
     //设置标题
     [self.primaryButton setTitle:@"用户名和密码登录" forState:UIControlStateNormal];
     [self.primaryButton setTitleColor:UIColor.redColor forState:UIControlStateNormal];
-
     //设置点击事件
-    [self.primaryButton addTarget:self action:@selector(primaryClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.primaryButton addTarget:self action:@selector(primaryClick:) forControlEvents:UIControlEventTouchUpInside];
     self.primaryButton.backgroundColor = UIColor.clearColor;
     self.primaryButton.layer.cornerRadius = 21;
     self.primaryButton.layer.borderWidth = 1;
     self.primaryButton.layer.borderColor = [UIColor redColor].CGColor;
-
     [self.container addSubview:self.primaryButton];
+#pragma mark - 第三方登录容器
+    UIView *otherLoginContainer = [[UIView alloc] init];
+//    otherLoginContainer.backgroundColor = [UIColor orangeColor];
+    [self.container addSubview:otherLoginContainer];
+    //第三方登录按钮
+    NSMutableArray *otherLoginButtonViews = [[NSMutableArray alloc] init];
+    for (NSInteger i = 0; i < 4; i++) {
+        UIButton *buttonView = [[UIButton alloc] init];
+        [buttonView setImage:[UIImage imageNamed:@"Logo"] forState:UIControlStateNormal];
+        buttonView.backgroundColor = [UIColor redColor];
+        [otherLoginContainer addSubview:buttonView];
+        [otherLoginButtonViews addObject:buttonView];
+    }
+
+
+
 #pragma mark - 协议
     UILabel *agrementLabel = [[UILabel alloc] init];
     //设置标题
@@ -75,6 +89,32 @@
         //水平居中
         make.centerX.equalTo(self.view.mas_centerX);
     }];
+
+#pragma mark - 约束 - 登录按钮
+    [self.primaryButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(self.container.mas_width);
+        make.height.mas_equalTo(42);
+        make.bottom.equalTo(self.phoneLoginButton.mas_top).offset(-30);
+    }];
+#pragma mark - 约束 - 手机号登录按钮
+    [self.phoneLoginButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(self.container.mas_width);
+        make.height.mas_equalTo(42);
+        make.bottom.equalTo(otherLoginContainer.mas_top).offset(-30);
+    }];
+
+#pragma mark - 约束 - 第三方登录容器
+    [otherLoginContainer mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(self.container.mas_width);
+        make.height.mas_equalTo(50);
+        make.bottom.equalTo(agrementLabel.mas_top).offset(-30);
+    }];
+    //水平排列
+    [otherLoginButtonViews mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedItemLength:50 leadSpacing:0 tailSpacing:0];
+    [otherLoginButtonViews mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(otherLoginContainer);
+        make.height.mas_equalTo(50);
+    }];
 #pragma mark - 约束 - 协议
     [agrementLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         //宽高
@@ -82,12 +122,6 @@
         make.bottom.mas_equalTo(0);
         //水平居中
         make.centerX.equalTo(self.view.mas_centerX);
-    }];
-#pragma mark - 约束 - 登录按钮
-    [self.phoneLoginButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(self.container.mas_width);
-        make.height.mas_equalTo(42);
-        make.bottom.equalTo(agrementLabel.mas_top).offset(-30);
     }];
 #pragma mark - 约束
     //根容器
@@ -100,11 +134,16 @@
     }];
 }
 
--(void)primaryClick{
+- (void)primaryClick:(UIButton *)sender {
+    NSLog(@"%@",sender);
+    SettingController *target = [[SettingController alloc] init];
+    [self.navigationController pushViewController:target animated:YES];
+    NSLog(@"%@",self.navigationController.viewControllers);
+}
+- (void)phoneLoginClick:(UIButton *)sender  {
+    NSLog(@"%@",sender);
+}
 
-}
--(void)phoneLoginClick{
-}
 
 
 @end

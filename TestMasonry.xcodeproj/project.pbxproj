@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2DD95315283E262903B95969 /* SettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD95C11FA481CEDE9D910F9 /* SettingController.m */; };
 		499DDE9E9902408C808C9EEF /* Pods_TestMasonryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2A8D57534EE937FED3FC3B /* Pods_TestMasonryTests.framework */; };
+		5C646316289265AB0022C2FD /* SettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C646315289265AB0022C2FD /* SettingView.m */; };
 		5C68BCAB2890554A00F2685E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C68BCAA2890554A00F2685E /* AppDelegate.m */; };
 		5C68BCAE2890554A00F2685E /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C68BCAD2890554A00F2685E /* SceneDelegate.m */; };
 		5C68BCB12890554A00F2685E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C68BCB02890554A00F2685E /* ViewController.m */; };
@@ -41,8 +43,12 @@
 
 /* Begin PBXFileReference section */
 		16EB82B6521E6B47DA4FFCF3 /* Pods-TestMasonry.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestMasonry.debug.xcconfig"; path = "Target Support Files/Pods-TestMasonry/Pods-TestMasonry.debug.xcconfig"; sourceTree = "<group>"; };
+		2DD95C11FA481CEDE9D910F9 /* SettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingController.m; sourceTree = "<group>"; };
+		2DD95C5ADA0079DA2A920392 /* SettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingController.h; sourceTree = "<group>"; };
 		4F7AB4FB4700D99F4AC30C6C /* Pods_TestMasonry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestMasonry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FA4EAE28ABF504ABB20385B /* Pods-TestMasonryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestMasonryTests.debug.xcconfig"; path = "Target Support Files/Pods-TestMasonryTests/Pods-TestMasonryTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5C646314289265AB0022C2FD /* SettingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingView.h; sourceTree = "<group>"; };
+		5C646315289265AB0022C2FD /* SettingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingView.m; sourceTree = "<group>"; };
 		5C68BCA62890554A00F2685E /* TestMasonry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestMasonry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C68BCA92890554A00F2685E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5C68BCAA2890554A00F2685E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -96,6 +102,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2DD95E2F56329A7DB708F344 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2DD95C5ADA0079DA2A920392 /* SettingController.h */,
+				2DD95C11FA481CEDE9D910F9 /* SettingController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5C6463132892651D0022C2FD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5C646314289265AB0022C2FD /* SettingView.h */,
+				5C646315289265AB0022C2FD /* SettingView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		5C68BC9D2890554A00F2685E = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +145,8 @@
 		5C68BCA82890554A00F2685E /* TestMasonry */ = {
 			isa = PBXGroup;
 			children = (
+				2DD95E2F56329A7DB708F344 /* Controller */,
+				5C6463132892651D0022C2FD /* View */,
 				5C68BCA92890554A00F2685E /* AppDelegate.h */,
 				5C68BCAA2890554A00F2685E /* AppDelegate.m */,
 				5C68BCAC2890554A00F2685E /* SceneDelegate.h */,
@@ -173,7 +199,6 @@
 				4FA4EAE28ABF504ABB20385B /* Pods-TestMasonryTests.debug.xcconfig */,
 				D1B0FD2A8A07A6E7E8DA80D1 /* Pods-TestMasonryTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -419,6 +444,8 @@
 				5C68BCAB2890554A00F2685E /* AppDelegate.m in Sources */,
 				5C68BCBC2890554B00F2685E /* main.m in Sources */,
 				5C68BCAE2890554A00F2685E /* SceneDelegate.m in Sources */,
+				2DD95315283E262903B95969 /* SettingController.m in Sources */,
+				5C646316289265AB0022C2FD /* SettingView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
