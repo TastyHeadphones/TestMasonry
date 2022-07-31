@@ -79,6 +79,7 @@
     }];
     [self.maxAndMinView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.temperatureView.mas_bottom);
+        make.bottom.equalTo(self.mas_bottom);
         [make centerX];
     }];
     [super updateConstraints];

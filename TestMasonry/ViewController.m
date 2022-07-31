@@ -10,9 +10,10 @@
 #import "HeaderView.h"
 
 @interface ViewController ()
-///UI
+
 @property(strong, nonatomic) HeaderView *headerView;
 @property(strong, nonatomic) UILabel *titleView;
+
 @end
 
 @implementation ViewController {
@@ -30,12 +31,12 @@
 ///@override
 - (void)updateViewConstraints {
     [self.headerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view.mas_top).offset(marginTop);
-        make.left.equalTo(self.view.mas_left);
-        make.right.equalTo(self.view.mas_right);
+        make.top.equalTo(self.view).inset(marginTop);
+                make.left.right.equalTo(self.view);
     }];
     [self.titleView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.headerView.mas_bottom);
+        make.left.equalTo(self.view).inset(padding);
     }];
     [super updateViewConstraints];
 
